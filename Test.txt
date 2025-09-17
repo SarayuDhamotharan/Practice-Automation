@@ -12,5 +12,7 @@ public class Amazon {
 		d.get("https://www.amazon.in/ref=nav_logo");
 		WebElement search= d.findElement(By.xpath("//input[@type='text']"));
 		search.sendKeys("iphone");
+         d.findElement(By.id("nav-search-submit-button")).click();
 	}
 }
+
