@@ -1,0 +1,16 @@
+package Library;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Amazon {
+
+	public static void main(String[] args) {
+		WebDriver d=new ChromeDriver();
+		d.get("https://www.amazon.in/ref=nav_logo");
+		WebElement search= d.findElement(By.xpath("//input[@type='text']"));
+		search.sendKeys("iphone");
+	}
+}
