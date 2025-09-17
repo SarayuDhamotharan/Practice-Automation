@@ -13,6 +13,37 @@ public class Amazon {
 		WebElement search= d.findElement(By.xpath("//input[@type='text']"));
 		search.sendKeys("iphone");
          d.findElement(By.id("nav-search-submit-button")).click();
+         Actions a=new Actions(d);
+		WebElement first= d.findElement(By.xpath("(//div[@data-cy='title-recipe'])[2]"));
+		Thread.sleep(2000);
+		a.contextClick(first).perform();
+		Thread.sleep(2000);
+		Robot r=new Robot();
+		r.keyPress(KeyEvent.VK_DOWN);  
+	     r.keyRelease(KeyEvent.VK_DOWN);
+	     Thread.sleep(2000);
+	     r.keyPress(KeyEvent.VK_DOWN);  
+	     r.keyRelease(KeyEvent.VK_DOWN);
+	     Thread.sleep(2000);
+	     r.keyPress(KeyEvent.VK_ENTER);
+	     Thread.sleep(2000);
+	     String w1 = d.getWindowHandle();
+	 	Set<String> w2 = d.getWindowHandles();
+	 	Thread.sleep(2000);
+	 	for(String w:w2) {
+	 		if(!w1.equals(w)) {
+	 			d.switchTo().window(w);
+	 		}
+	 	} 
+	 	WebElement price = d.findElement(By.xpath("(//span[@class='a-price-whole'])[5]"));
+	 	Thread.sleep(2000);
+	 	String text = price.getText();
+	 	Thread.sleep(2000);
+	 	System.out.println(text);
+
+
+
 	}
 }
+
 
